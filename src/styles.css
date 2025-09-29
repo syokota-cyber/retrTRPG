@@ -1,0 +1,255 @@
+:root{
+  --bg: #0f0f12;
+  --panel: #1b1b22;
+  --line: #2a2a33;
+  --text: #e8e8f0;
+  --muted: #a8abb3;
+  --accent: #c9a227;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif}
+body[data-game-state="intro"]{overflow:hidden}
+body[data-game-state="intro"] .topbar,
+body[data-game-state="intro"] .layout,
+body[data-game-state="intro"] #helpModal{display:none}
+
+.intro-screen{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;color:#f0f3ff;background-size:cover;background-position:center;background-repeat:no-repeat}
+.intro-screen::before{content:"";position:absolute;inset:0;background:linear-gradient(210deg,rgba(8,12,24,0.85) 0%,rgba(12,16,28,0.65) 40%,rgba(10,10,20,0.85) 100%);backdrop-filter:blur(2px)}
+.intro-screen > *{position:relative;z-index:1}
+.opening-screen{background-image:url('../assets/png/backgrounds/stage1/city_dusk_backdrop.png')}
+.prologue-screen{background-image:url('../assets/png/backgrounds/stage1/city_dusk_backdrop.png')}
+.intro-overlay{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;padding:48px 24px}
+.opening-logo{width:min(380px,60vw)}
+.intro-primary{font-size:20px;padding:14px 48px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);background:rgba(20,30,58,0.7);color:#f0f3ff;cursor:pointer;letter-spacing:0.08em;text-transform:uppercase;transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s ease}
+.intro-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,0.45);background:rgba(35,46,82,0.85)}
+.opening-hint{margin:0;font-size:14px;color:rgba(240,243,255,0.75)}
+.prologue-overlay{display:flex;align-items:flex-start;justify-content:center;width:100%;padding:60px 24px}
+.prologue-frame{max-width:720px;width:100%;background:rgba(16,20,38,0.75);border:1px solid rgba(86,106,168,0.45);border-radius:16px;padding:32px;box-shadow:0 22px 40px rgba(0,0,0,0.45);display:flex;flex-direction:column;gap:24px}
+.prologue-frame h2{margin:0;font-size:28px;letter-spacing:0.12em;text-transform:uppercase;color:#cbd8ff}
+.prologue-scroll-mask{height:50vh;min-height:260px;overflow:hidden;position:relative;border:1px solid rgba(97,119,180,0.3);border-radius:12px;padding:24px;background:rgba(8,12,26,0.6)}
+.prologue-scroll{display:flex;flex-direction:column;gap:32px;font-size:18px;line-height:1.8;transform:translateY(60%);animation:prologueScroll 42s linear forwards;animation-play-state:paused}
+.prologue-scroll p{margin:0;text-shadow:0 2px 6px rgba(0,0,0,0.5)}
+.prologue-screen.is-active .prologue-scroll{animation-play-state:running}
+.prologue-screen[hidden]{display:none}
+.intro-screen.is-hidden{animation:fadeOut 0.35s ease forwards;pointer-events:none}
+
+@keyframes prologueScroll{
+  from{transform:translateY(60%)}
+  to{transform:translateY(-110%)}
+}
+
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden}
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#14141a;border-bottom:1px solid var(--line)}
+.title-logo{height:48px}
+.status{display:flex;gap:16px;color:var(--muted);font-size:14px}
+.actions{display:flex;gap:8px}
+.help-btn{background:#242633;color:#e8e8f0;border:1px solid #2f3140;border-radius:6px;padding:6px 10px;cursor:pointer}
+.help-btn:hover{outline:1px solid var(--accent)}
+
+.layout{display:grid;grid-template-columns:1fr 320px;gap:12px;padding:12px;height:calc(100% - 66px)}
+.board{position:relative;display:flex;align-items:center;justify-content:center;background:#121218;border:1px solid var(--line)}
+#grid{display:block;max-width:100%;height:auto;background:#0d0d12}
+#overlay{position:absolute;left:0;top:0;width:100%;height:100%;}
+.tile{position:absolute;width:96px;height:96px;pointer-events:none}
+.token{position:absolute;width:96px;height:96px;display:flex;align-items:center;justify-content:center;font-size:72px;line-height:1;transform:translate(0,0)}
+.goal-label{position:absolute;width:96px;height:24px;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(201,162,39,0.85);border-radius:4px;font-size:12px;pointer-events:none;transform:translate(0,-24px)}
+
+.sidebar{display:flex;flex-direction:column;gap:12px}
+.panel{background:var(--panel);border:1px solid var(--line);padding:10px;border-radius:6px}
+.panel h3{margin:0 0 8px 0;font-size:14px;color:var(--muted)}
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.icon-grid.small{grid-template-columns:repeat(5,1fr)}
+.icon-grid img{width:32px;height:32px;display:block}
+.icon-grid button{background:#22232c;border:1px solid #2e2f3a;border-radius:6px;padding:6px;cursor:pointer}
+.icon-grid button:hover{outline:1px solid var(--accent)}
+.icon-grid.captions figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.icon-grid.captions figcaption{font-size:10px;color:var(--muted)}
+.log{flex:1;min-height:120px}
+#log{margin:0;height:180px;overflow:auto;color:#cfd2dd;font-size:12px;line-height:1.3;background:#13141a;border:1px solid #242635;padding:8px;border-radius:4px}
+
+/* Responsive tweak */
+@media (max-width: 1100px){
+  .layout{grid-template-columns:1fr}
+}
+
+/* Modal */
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;z-index:50}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+.modal-content{position:relative;max-width:720px;margin:8vh auto;background:#16161d;border:1px solid #2a2b36;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.35);color:#e8e8f0}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #2a2b36}
+.modal-body{padding:12px 16px}
+.modal-close{background:transparent;color:#e8e8f0;border:1px solid #3a3b46;border-radius:6px;padding:4px 8px;cursor:pointer}
+.modal-close:hover{outline:1px solid var(--accent)}
+
+/* Event modal styles */
+.event-modal {
+  min-width: 400px;
+}
+
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.choice-btn {
+  padding: 0.75rem 1rem;
+  background: #2a3040;
+  border: 1px solid #3b4560;
+  color: #e8e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.choice-btn:hover:not(:disabled) {
+  background: #3b4560;
+  border-color: #4b5570;
+}
+
+.choice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal-action-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  background: #4b5570;
+  border: none;
+  color: #e8e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Trade and business modals */
+.material-modal, .negotiate-modal, .sell-modal, .dice-modal {
+  min-width: 450px;
+}
+
+.status-bar {
+  padding: 0.5rem;
+  background: #2a2b36;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.material-list, .demand-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.material-row, .demand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: #22232c;
+  border-radius: 4px;
+}
+
+.buy-btn, .sell-btn, .command-btn, .dice-btn {
+  padding: 0.5rem 1rem;
+  background: #3b4560;
+  border: 1px solid #4b5570;
+  color: #e8e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buy-btn:hover:not(:disabled),
+.sell-btn:hover:not(:disabled),
+.command-btn:hover:not(:disabled),
+.dice-btn:hover:not(:disabled) {
+  background: #4b5570;
+  border-color: #5b6580;
+}
+
+.buy-btn:disabled,
+.sell-btn:disabled,
+.command-btn:disabled,
+.dice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.inventory {
+  padding: 0.75rem;
+  background: #1b1c24;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.inventory h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 14px;
+  color: #a8b0c0;
+}
+
+.inventory span {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #e8e8f0;
+}
+
+.negotiate-info {
+  padding: 0.75rem;
+  background: #2a2b36;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.negotiate-info div {
+  margin: 0.25rem 0;
+}
+
+.battle-commands {
+  margin: 1rem 0;
+}
+
+.battle-commands h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 14px;
+  color: #a8b0c0;
+}
+
+.battle-commands button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.battle-message, .dice-message {
+  padding: 1rem;
+  background: #2a2b36;
+  border-radius: 4px;
+  white-space: pre-line;
+  color: #e8e8f0;
+}
+
+.warning {
+  padding: 1rem;
+  background: #4a2b2b;
+  border: 1px solid #6a3b3b;
+  border-radius: 4px;
+  color: #f8c8c8;
+}
+
+.dice-game {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dice-btn {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+}

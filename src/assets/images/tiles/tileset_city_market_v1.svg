@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
+  <rect width="160" height="96" fill="#f3f3f3"/>
+  <rect x="1" y="1" width="158" height="94" fill="none" stroke="#bbb" stroke-dasharray="4 2"/>
+  <g fill="none" stroke="#ddd">
+    <path d="M32 0v96M64 0v96M96 0v96M128 0v96M0 32h160M0 64h160"/>
+  </g>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="monospace" font-size="10" fill="#666">tileset_city_market_v1\n160x96 (32px grid)</text>
+</svg>

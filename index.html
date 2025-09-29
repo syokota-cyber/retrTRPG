@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>中世風ビジネスSRPG - プレースホルダーUI</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body data-game-state="intro">
+    <div id="openingScreen" class="intro-screen opening-screen">
+      <div class="intro-overlay">
+        <img class="opening-logo" src="src/assets/images/ui/title_logo_v1.png" alt="Game Title Logo" />
+        <button id="startButton" class="intro-primary">Press Start</button>
+        <p class="opening-hint">Enterキーでも開始できます</p>
+      </div>
+    </div>
+
+    <div id="prologueScreen" class="intro-screen prologue-screen" hidden>
+      <div class="prologue-overlay">
+        <div class="prologue-frame">
+          <h2>プロローグ</h2>
+          <div class="prologue-scroll-mask">
+            <div class="prologue-scroll" id="prologueText">
+              <p>企業とギルドが入り混じる巨大都市「ヘリオス・マーケット」。利益と信用がすべてを決めるこの街では、人々が昼夜を問わず取引を交わし、隙あらば勢力を広げようと目を光らせている。</p>
+              <p>かつて商隊を率いていたあなたは、新興企業「レトラ・トレード」に雇われ、危険な街路を切り拓く戦略調査部隊を任された。目的地は、各派閥が睨みを利かせる市場の中枢にある重要な取引先だ。</p>
+              <p>街は飢えた情報屋と武装した自警団、そして裏で糸を引く企業傭兵で溢れ、どの路地を選ぶかが明暗を分ける。失敗すればチームは瓦解し、信用も資金も一瞬で失われるだろう。</p>
+              <p>装備を整え、仲間を鼓舞し、最良のルートを見極めよ。取引が成功すればレトラ・トレードは一気に躍進し、あなたの名も都市に轟くことになる。さあ、ヘリオス・マーケットの夜明けに挑め。</p>
+            </div>
+          </div>
+          <button id="beginGameButton" class="intro-primary">ゲーム開始</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <img class="title-logo" src="src/assets/images/ui/title_logo_v1.png" alt="Title" />
+      <div class="status">
+        <span id="status-turn">Turn: 1</span>
+        <span id="status-cash">Cash: 1200</span>
+        <span id="status-rep">Rep: 15</span>
+      </div>
+      <div class="actions">
+        <button id="helpBtn" class="help-btn" title="ルール/操作説明">Help</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="board" id="board">
+        <canvas id="grid"></canvas>
+        <div id="overlay">
+          <img id="cursor" class="tile" src="src/assets/images/ui/cursor_selector_v1.png" alt="cursor" />
+          <div id="party" class="token" aria-label="主人公"></div>
+          <div id="goalLabel" class="goal-label">取引先</div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>Commands</h3>
+          <div class="icon-grid">
+            <button title="Move"><img src="src/assets/images/ui/icons/icon_move_v1.png" alt="Move" /></button>
+            <button title="Negotiate"><img src="src/assets/images/ui/icons/icon_negotiate_v1.png" alt="Negotiate" /></button>
+            <button title="Invest"><img src="src/assets/images/ui/icons/icon_invest_v1.png" alt="Invest" /></button>
+            <button title="Contract"><img src="src/assets/images/ui/icons/icon_contract_v1.png" alt="Contract" /></button>
+            <button title="Heal"><img src="src/assets/images/ui/icons/icon_heal_v1.png" alt="Heal" /></button>
+            <button title="Attack"><img src="src/assets/images/ui/icons/icon_attack_v1.png" alt="Attack" /></button>
+            <button title="End Turn"><img src="src/assets/images/ui/icons/icon_end_turn_v1.png" alt="End Turn" /></button>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Items</h3>
+          <div class="icon-grid small captions">
+            <figure><img src="src/assets/images/ui/icons/icon_item_painkiller_v1.png" alt="痛み止め薬" /><figcaption>痛み止め</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_item_potion_v1.png" alt="回復薬" /><figcaption>回復薬</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_item_herb_v1.png" alt="薬草" /><figcaption>薬草</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_item_bandage_v1.png" alt="包帯" /><figcaption>包帯</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_eq_prosthetic_leg_v1.png" alt="義足" /><figcaption>義足</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_eq_prosthetic_arm_v1.png" alt="義手" /><figcaption>義手</figcaption></figure>
+            <figure><img src="src/assets/images/ui/icons/icon_eq_crutch_v1.png" alt="松葉杖" /><figcaption>松葉杖</figcaption></figure>
+          </div>
+        </div>
+        <div class="panel log">
+          <h3>Log</h3>
+          <pre id="log"></pre>
+        </div>
+      </aside>
+    </main>
+
+    <div id="helpModal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+        <header class="modal-header">
+          <h2 id="helpTitle">ルール / 操作方法</h2>
+          <button class="modal-close" data-close>&times;</button>
+        </header>
+        <section class="modal-body">
+          <p>目的：分岐する街路（道）を辿り、目的地「取引先」に到達します。</p>
+          <ul>
+            <li>移動は道（道路）上のみ。自由なマス移動は不可。</li>
+            <li>カーソル：矢印キーで隣接する「道」ノードへ移動。</li>
+            <li>ユニット（🧑‍💼）：Enter/Space でカーソル位置に移動。</li>
+            <li>到達判定：「取引先」のノードに移動すると到達。</li>
+            <li>ヘルプ：右上の Help または「? / h」キーで開閉。</li>
+            <li>アイテム欄：名称キャプション付き（現状は表示のみ）。</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+  </html>

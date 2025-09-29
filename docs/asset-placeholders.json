@@ -1,0 +1,34 @@
+[
+  {"targetPng":"src/assets/images/ui/title_logo_v1.png","placeholderSvg":"src/assets/images/ui/title_logo_v1.svg","width":512,"height":256},
+  {"targetPng":"src/assets/images/ui/cursor_selector_v1.png","placeholderSvg":"src/assets/images/ui/cursor_selector_v1.svg","width":32,"height":32},
+
+  {"targetPng":"src/assets/images/ui/icons/icon_move_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_move_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_negotiate_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_negotiate_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_invest_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_invest_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_contract_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_contract_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_heal_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_heal_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_attack_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_attack_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_end_turn_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_end_turn_v1.svg","width":32,"height":32},
+
+  {"targetPng":"src/assets/images/ui/icons/icon_item_painkiller_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_item_painkiller_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_item_potion_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_item_potion_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_item_herb_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_item_herb_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_item_bandage_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_item_bandage_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_eq_prosthetic_leg_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_eq_prosthetic_leg_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_eq_prosthetic_arm_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_eq_prosthetic_arm_v1.svg","width":32,"height":32},
+  {"targetPng":"src/assets/images/ui/icons/icon_eq_crutch_v1.png","placeholderSvg":"src/assets/images/ui/icons/icon_eq_crutch_v1.svg","width":32,"height":32},
+
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_sales_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_sales_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_finance_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_finance_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_legal_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_legal_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_scout_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_scout_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_guard_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_guard_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/characters/sprite_char_driver_v1.png","placeholderSvg":"src/assets/images/sprites/characters/sprite_char_driver_v1.svg","width":96,"height":128},
+
+  {"targetPng":"src/assets/images/sprites/enemies/sprite_enemy_raider_v1.png","placeholderSvg":"src/assets/images/sprites/enemies/sprite_enemy_raider_v1.svg","width":96,"height":128},
+  {"targetPng":"src/assets/images/sprites/enemies/sprite_enemy_corp_guard_v1.png","placeholderSvg":"src/assets/images/sprites/enemies/sprite_enemy_corp_guard_v1.svg","width":96,"height":128},
+
+  {"targetPng":"src/assets/images/objects/sprite_cart_main_v1.png","placeholderSvg":"src/assets/images/objects/sprite_cart_main_v1.svg","width":64,"height":32},
+  {"targetPng":"src/assets/images/tiles/tileset_city_market_v1.png","placeholderSvg":"src/assets/images/tiles/tileset_city_market_v1.svg","width":160,"height":96}
+]
+
